@@ -29,8 +29,13 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var totalBookCount = 1_252_794
+
 	// Initialize a message.Printer which uses the target language.
 	p := message.NewPrinter(lang)
 	// Print the welcome message translated into the target language.
 	p.Fprintf(w, "Welcome!\n")
+
+	// Example of translated message with enterpolated integer value.
+	p.Fprintf(w, "%d books available\n", totalBookCount)
 }
